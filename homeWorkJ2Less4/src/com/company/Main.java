@@ -3,18 +3,10 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-
-        for (int i = 1; i < 5; i++) {
-            Runner runner = new Runner("Runner",i);
-            Thread thread = new Thread(runner);
-            thread.start();
-            try {
-                thread.join();
-                thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        Runner r1 = new Runner("Runner 1",new Runner("Runner 2",
+                new Runner("Runner 3",
+                new Runner("Runner 4", new Runner("Runner 5")))));
+        r1.start();
     }
 }
 
